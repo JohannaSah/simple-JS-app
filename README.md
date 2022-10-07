@@ -10,6 +10,7 @@ more details for a given data item on demand.
 
 ## API used
 For this project I chose the following public API:
+- to be added once chosen
 
 ## The key features
 The key features for this app are:

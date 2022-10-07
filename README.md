@@ -10,6 +10,7 @@ more details for a given data item on demand.
 
 ## API used
 For this project I chose the following public API:
+- to be added once chosen
 
 ## The key features
 The key features for this app are:
@@ -18,4 +19,8 @@ The key features for this app are:
 - on user action, view details for that item
 
 ## Browsers
-This app will work in Chrome, Firefox, Safari and Edge.
+This app will work in 
+- Chrome 
+- Firefox 
+- Safari
+- Edge.

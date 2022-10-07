@@ -39,13 +39,15 @@ chose the weight as the property for the conditionals, as there was a larger spr
 added more than required to make the sentences nicer
 */
 for ( let i = 0; i < pokemonList.length; i++){
+  document.write(pokemonList[i].name)
   if (pokemonList[i].weight < 50 && pokemonList[i].weight > 10) {
-    document.write(pokemonList[i].name + " is an average sized pokemon " + "(" + pokemonList[i].weight + "kg)" + ". ");
+    document.write(" is an average sized pokemon ");
   }
   else if (pokemonList[i].weight < 10) {
-    document.write(pokemonList[i].name + " is a small pokemon " + "(" + pokemonList[i].weight + "kg)" + ". ");
+    document.write(" is a small pokemon ");
   }
   else {
-    document.write("Wow, "+ pokemonList[i].name + " is a really large pokemon " + "(" + pokemonList[i].weight + "kg)" + ". ");
+    document.write(" is a really large pokemon. WOW! ");
   }
+  document.write("(" + pokemonList[i].weight + "kg). <br>")
 }

@@ -19,8 +19,8 @@ The key features for this app are:
 - on user action, view details for that item
 
 ## Browsers
-This app will work in 
-- Chrome 
-- Firefox 
+This app will work in: 
+- Chrome
+- Firefox
 - Safari
 - Edge.

@@ -1,0 +1,25 @@
+:root {
+    --primary-color: #add8e6;
+    --secondary-color: ;
+    --text-color: #003200;
+    --text-color-light: #325A32;
+  }
+
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+  }
+
+.pageTitle {
+  font-size: 40px;
+  font-weight: 700px;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-shadow: 1px 1px 2px var(--text-color-light);
+  text-decoration-color: var(--text-color-light);
+}

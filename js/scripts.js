@@ -60,13 +60,14 @@ let pokemonList2 = [
   }
 ];
 
+
 /*
 - the following for loop contains if-else conditionals
     -chose the weight as the property for the conditionals, as there was a larger spread
     -added more than required to make the sentences nicer
-- the function has the function parameter list, which is a placeholder for the arrays of pokemon
+- the function has the function parameter 'list', which is a placeholder for the arrays of pokemon
   that are supposed to be put through the function
-    - when calling the function input the array name as the function argument in the parenthesis
+    - when calling the function input the array name as the function argument (variable) in the parentheses
 */
 function printArrayDetails (list){
   for ( let i = 0; i < list.length; i++){

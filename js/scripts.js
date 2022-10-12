@@ -34,20 +34,25 @@ let pokemonList = [
 ];
 
 /*
-the following is a for loop that contains if-else conditionals
+the following for loop contains if-else conditionals
 chose the weight as the property for the conditionals, as there was a larger spread
 added more than required to make the sentences nicer
 */
-for ( let i = 0; i < pokemonList.length; i++){
-  document.write(pokemonList[i].name)
-  if (pokemonList[i].weight < 50 && pokemonList[i].weight > 10) {
-    document.write(" is an average sized pokemon ");
+function printArrayDetails (){
+  for ( let i = 0; i < pokemonList.length; i++){
+    document.write(pokemonList[i].name)
+    if (pokemonList[i].weight < 50 && pokemonList[i].weight > 10) {
+      document.write(" is an average sized pokemon ");
+    }
+    else if (pokemonList[i].weight < 10) {
+      document.write(" is a small pokemon ");
+    }
+    else {
+      document.write(" is a really large pokemon. WOW! ");
+    }
+    document.write("(" + pokemonList[i].weight + "kg). <br>");
   }
-  else if (pokemonList[i].weight < 10) {
-    document.write(" is a small pokemon ");
-  }
-  else {
-    document.write(" is a really large pokemon. WOW! ");
-  }
-  document.write("(" + pokemonList[i].weight + "kg). <br>")
 }
+
+printArrayDetails();
+printArrayDetails();

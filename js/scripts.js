@@ -33,26 +33,56 @@ let pokemonList = [
   }
 ];
 
+let pokemonList2 = [
+  {
+    name: "Caterpie",
+    types: ['bug'],
+    height: 0.3,
+    weight: 2.9
+  },
+  {
+    name: "Charizard",
+    types: ['fire', 'flying'],
+    height: 1.7,
+    weight: 90.5
+  },
+  {
+    name: "Rapidash",
+    types: ['fire'],
+    height: 1.7,
+    weight: 95
+  },
+  {
+    name: "Lapras",
+    types: ['water', 'ice'],
+    height: 2.5,
+    weight: 220
+  }
+];
+
 /*
-the following for loop contains if-else conditionals
-chose the weight as the property for the conditionals, as there was a larger spread
-added more than required to make the sentences nicer
+- the following for loop contains if-else conditionals
+    -chose the weight as the property for the conditionals, as there was a larger spread
+    -added more than required to make the sentences nicer
+- the function has the function parameter list, which is a placeholder for the arrays of pokemon
+  that are supposed to be put through the function
+    - when calling the function input the array name as the function argument in the parenthesis
 */
-function printArrayDetails (){
-  for ( let i = 0; i < pokemonList.length; i++){
-    document.write(pokemonList[i].name)
-    if (pokemonList[i].weight < 50 && pokemonList[i].weight > 10) {
+function printArrayDetails (list){
+  for ( let i = 0; i < list.length; i++){
+    document.write(list[i].name)
+    if (list[i].weight < 50 && list[i].weight > 10) {
       document.write(" is an average sized pokemon ");
     }
-    else if (pokemonList[i].weight < 10) {
+    else if (list[i].weight < 10) {
       document.write(" is a small pokemon ");
     }
     else {
       document.write(" is a really large pokemon. WOW! ");
     }
-    document.write("(" + pokemonList[i].weight + "kg). <br>");
+    document.write("(" + list[i].weight + "kg). <br>");
   }
 }
 
-printArrayDetails();
-printArrayDetails();
+printArrayDetails(pokemonList);
+printArrayDetails(pokemonList2);

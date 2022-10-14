@@ -8,8 +8,8 @@
 }
 
 body {
-  font-family: "Montserrat";
-  font-weight: 500;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
   color: var(--text-color);
@@ -19,6 +19,7 @@ body {
 .pageTitle {
   margin: 40px;
   font-size: 50px;
+  font-weight: 700px;
   text-decoration: underline;
   text-shadow: 1px 1px 2px var(--text-color-light);
   text-decoration-color: var(--text-color-light);

@@ -1,10 +1,11 @@
 /* Take the time to choose proper colour scheme and to style the app properly */
 
 :root {
-  --primary-color: #add8e6;
-  --secondary-color: ;
-  --text-color: #003200;
-  --text-color-light: #325A32;
+  --primary-color: #a5c9ca;
+  --secondary-color: #395b64;
+  --background-color: #e7f6f2;
+  --text-color: #2c3333;
+  --text-color-light: #e9eaea;
 }
 
 body {
@@ -13,7 +14,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: var(--text-color);
-  background-color: var(--primary-color);
+  background-color: var(--background-color);
 }
 
 .pageTitle {
@@ -22,7 +23,7 @@ body {
   font-weight: 700px;
   text-decoration: underline;
   text-shadow: 1px 1px 2px var(--text-color-light);
-  text-decoration-color: var(--text-color-light);
+  text-decoration-color: var(--text-color);
 }
 
 .pokemonButton {
@@ -31,9 +32,9 @@ body {
   padding: 5px;
   font-size: 20px;
   font-style: italic;
-  color: white;
+  color: var(--text-color-light);
   border-radius: 5px;
-  background-color: var(--text-color-light);
+  background-color: var(--secondary-color);
   cursor: pointer;
 }
 

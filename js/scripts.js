@@ -38,6 +38,13 @@ let pokemonRepository = ( function () {
     return pokemonList;
   }
 
+  // function needed to add the evenListener to button in the next function
+  // will lead to the pokemon details being shown in the console log, when the
+  //button is clicked
+  function showDetails(pokemon) {
+    console.log(pokemon)
+  }
+
   // writes function forEach pokemon in the pokemonRepository,
   // adding it to a button within a listItem within the unorderedPokemonList
   function addListItem(pokemon){
@@ -48,6 +55,9 @@ let pokemonRepository = ( function () {
     let button = document.createElement('button');
     button.innerText = pokemon.name;
     button.classList.add('pokemonButton');
+    button.addEventListener('click', function(event){
+      showDetails(pokemon);
+    })
 
     listItemPokemon.appendChild(button);
 

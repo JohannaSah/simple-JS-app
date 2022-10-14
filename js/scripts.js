@@ -48,19 +48,28 @@ let pokemonRepository = ( function () {
   // writes function forEach pokemon in the pokemonRepository,
   // adding it to a button within a listItem within the unorderedPokemonList
   function addListItem(pokemon){
+    // creates a variable for the ul in the index.html
     let unorderedPokemonList = document.querySelector('.pokemon-list');
 
+    // creates a new li (listItem) for each time the loop is run
     let listItemPokemon = document.createElement('li');
 
+    // creates a button
     let button = document.createElement('button');
+    // adds text to the button, in this case the called pokemon's name
     button.innerText = pokemon.name;
+    // adds a class to the button called pokemonButton
     button.classList.add('pokemonButton');
+    // adds an evenListener to the button, leading to the pokemon details to be
+    // shown in the console log
     button.addEventListener('click', function(event){
       showDetails(pokemon);
     })
 
+    // appends the button as a child of the li listItemPokemon
     listItemPokemon.appendChild(button);
 
+    //appends the listItemPokemon as a child of the ul unorderedPokemonList
     unorderedPokemonList.appendChild(listItemPokemon);
   }
 

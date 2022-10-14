@@ -22,7 +22,7 @@ body {
   font-size: 50px;
   font-weight: 700px;
   text-decoration: underline;
-  text-shadow: 1px 1px 2px var(--text-color-light);
+  text-shadow: 1px 1px 2px;
   text-decoration-color: var(--secondary-color);
 }
 
@@ -33,7 +33,7 @@ body {
   font-weight: 700px;
   text-decoration: underline;
   text-decoration-style: dotted;
-  text-shadow: 1px 1px 2px var(--text-color-light);
+  text-shadow: 1px 1px 2px;
   text-decoration-color: var(--secondary-color);
 }
 
@@ -45,6 +45,7 @@ body {
   font-style: italic;
   color: var(--text-color);
   border-radius: 5px;
+  border-color: var(--secondary-color);
   background-color: var(--primary-color);
 }
 

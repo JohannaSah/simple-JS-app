@@ -33,6 +33,7 @@ body {
   color: white;
   border-radius: 5px;
   background-color: var(--text-color-light);
+  cursor: pointer;
 }
 
 .pokemon-list {

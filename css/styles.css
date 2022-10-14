@@ -16,10 +16,25 @@ body {
   }
 
 .pageTitle {
-  font-size: 40px;
+  margin: 40px;
+  font-size: 50px;
   font-weight: 700px;
   text-decoration: underline;
-  text-decoration-style: wavy;
   text-shadow: 1px 1px 2px var(--text-color-light);
   text-decoration-color: var(--text-color-light);
+}
+
+.pokemonButton {
+  width: 150px;
+  margin: 7px;
+  padding: 5px;
+  font-size: 20px;
+  font-style: italic;
+  color: white;
+  border-radius: 5px;
+  background-color: var(--text-color-light);
+}
+
+.pokemon-list {
+  list-style-type: none;
 }

@@ -128,3 +128,6 @@ pageTitle.innerText = 'Pokedex'
 pokemonRepository.getAll().forEach(function(pokemon){
   pokemonRepository.addListItem(pokemon);
 })
+
+let listTitle = document.querySelector('h2')
+listTitle.innerText = 'List of Pokemons'

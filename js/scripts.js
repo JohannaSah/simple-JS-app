@@ -28,18 +28,39 @@ let pokemonRepository = ( function () {
     }
   ];
 
+  // function that lets you add more pokemons to the repository if called
   function add(pokemon) {
     pokemonList.push(pokemon)
   }
 
+  // function prints all the pokemon in the reopsitory when called
   function getAll() {
     return pokemonList;
   }
 
+  // writes function forEach pokemon in the pokemonRepository,
+  // adding it to a button within a listItem within the unorderedPokemonList
+  function addListItem(pokemon){
+    let unorderedPokemonList = document.querySelector('.pokemon-list');
+
+    let listItemPokemon = document.createElement('li');
+
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('pokemonButton');
+
+    listItemPokemon.appendChild(button);
+
+    unorderedPokemonList.appendChild(listItemPokemon);
+  }
+
+  // calls the function and says what the should show in the DOM
   return  {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
   };
+
 }) ();
 
 // array that contains more pokemons
@@ -78,17 +99,13 @@ pokemonList2.forEach(function (pokemon) {
 // lists all the pokemon in the console
 console.log(pokemonRepository.getAll())
 
-// writes the if-else statement forEach pokemon in the pokemonRepository
+// Adds a test to the DOM of the HTML h1
+let pageTitle = document.querySelector('h1')
+pageTitle.innerText = 'Pokedex'
+
+// forEach loop for the pokemonRepository, calling all the pokemon in the repository,
+// one at the time and running the addListItem function over each pokemons
+// thereby adding each pokemon name to a button within a listItem within the unorderedPokemonList
 pokemonRepository.getAll().forEach(function(pokemon){
-  document.write(pokemon.name)
-  if (pokemon.weight < 50 && pokemon.weight > 10) {
-    document.write(" is an average sized pokemon ");
-  }
-  else if (pokemon.weight < 10) {
-    document.write(" is a small pokemon ");
-  }
-  else {
-    document.write(" is a really large pokemon. WOW! ");
-  }
-  document.write("(" + pokemon.weight + "kg). <br>");
+  pokemonRepository.addListItem(pokemon);
 })

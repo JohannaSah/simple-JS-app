@@ -1,11 +1,11 @@
 /* Take the time to choose proper colour scheme and to style the app properly */
 
 :root {
-  --primary-color: #a5c9ca;
-  --secondary-color: #395b64;
-  --background-color: #e7f6f2;
-  --text-color: #2c3333;
-  --text-color-light: #e9eaea;
+  --primary-color: #FCE700;
+  --secondary-color: #FF6D28;
+  --background-color: #00F5FF;
+  --text-color: #EA047E;
+  --text-color-light: #EA047E;
 }
 
 body {

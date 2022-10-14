@@ -23,7 +23,18 @@ body {
   font-weight: 700px;
   text-decoration: underline;
   text-shadow: 1px 1px 2px var(--text-color-light);
-  text-decoration-color: var(--text-color);
+  text-decoration-color: var(--secondary-color);
+}
+
+.listTitle {
+  margin: 30px;
+  margin-left: 40px;
+  font-size: 30px;
+  font-weight: 700px;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-shadow: 1px 1px 2px var(--text-color-light);
+  text-decoration-color: var(--secondary-color);
 }
 
 .pokemonButton {
@@ -32,10 +43,17 @@ body {
   padding: 5px;
   font-size: 20px;
   font-style: italic;
-  color: var(--text-color-light);
+  color: var(--text-color);
   border-radius: 5px;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
+}
+
+.pokemonButton:hover,
+.pokemonButton:focus {
   cursor: pointer;
+  opacity: 0.7;
+  text-decoration: underline;
+  box-shadow: 3px 3px 6px var(--secondary-color);
 }
 
 .pokemon-list {

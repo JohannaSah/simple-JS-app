@@ -129,5 +129,5 @@ pokemonRepository.getAll().forEach(function(pokemon){
   pokemonRepository.addListItem(pokemon);
 })
 
-let listTitle = document.querySelector('h2')
-listTitle.innerText = 'List of Pokemons'
+let listTitle = document.querySelector('h2');
+listTitle.innerText = 'List of Pokemons';

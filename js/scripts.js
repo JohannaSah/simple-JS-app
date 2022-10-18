@@ -118,18 +118,18 @@ pokemonList2.forEach(function (pokemon) {
   });
 
 // lists all the pokemon in the repository in the console
-console.log(pokemonRepository.getAll())
+console.log(pokemonRepository.getAll());
 
 // Adds a text to the DOM of the HTML h1
-let pageTitle = document.querySelector('h1')
-pageTitle.innerText = 'Pokedex'
+let pageTitle = document.querySelector('h1');
+pageTitle.innerText = 'Pokedex';
 
 // forEach loop for the pokemonRepository, calling all the pokemon in the repository,
 // one at the time and running the addListItem function over each pokemons
 // thereby adding each pokemon name to a button within a listItem within the unorderedPokemonList
 pokemonRepository.getAll().forEach(function(pokemon){
   pokemonRepository.addListItem(pokemon);
-})
+});
 
 let listTitle = document.querySelector('h2');
 listTitle.innerText = 'List of Pokemons';

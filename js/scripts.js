@@ -1,5 +1,7 @@
 
-// pokemonRepository contains IIFE with the add() function and getAll() function
+// pokemonRepository contains IIFE with the add() function,  getAll() function,
+// the showDetails function and the addListItem function, which in turn contains
+// the button and EventListener
 let pokemonRepository = ( function () {
   let pokemonList = [
     {

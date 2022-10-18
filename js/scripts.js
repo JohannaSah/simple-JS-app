@@ -56,7 +56,7 @@ let pokemonRepository = ( function () {
     // creates a new li (listItem) for each time the loop is run
     let listItemPokemon = document.createElement('li');
 
-    // creates a button
+    // creates a button each time the loop is run
     let button = document.createElement('button');
     // adds text to the button, in this case the called pokemon's name
     button.innerText = pokemon.name;
@@ -117,10 +117,10 @@ pokemonList2.forEach(function (pokemon) {
     pokemonRepository.add(pokemon)
   });
 
-// lists all the pokemon in the console
+// lists all the pokemon in the repository in the console
 console.log(pokemonRepository.getAll())
 
-// Adds a test to the DOM of the HTML h1
+// Adds a text to the DOM of the HTML h1
 let pageTitle = document.querySelector('h1')
 pageTitle.innerText = 'Pokedex'
 

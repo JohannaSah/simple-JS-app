@@ -67,3 +67,14 @@ body {
   text-decoration: underline;
   box-shadow: 3px 3px 6px var(--secondary-color);
 }
+
+.loading-message{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 50px;
+}
+
+.hide-loading-message {
+  display: none;
+}

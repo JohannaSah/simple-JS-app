@@ -1,34 +1,19 @@
 
+// Adds a text to the DOM of the HTML h1
+let pageTitle = document.querySelector('h1');
+pageTitle.innerText = 'Pokedex';
+
+//TItle of the pokemon list that follows
+let listTitle = document.querySelector('h2');
+listTitle.innerText = 'List of Pokemons';
+
 // pokemonRepository contains IIFE with the add() function,  getAll() function,
 // the showDetails function and the addListItem function, which in turn contains
 // the button and EventListener
 let pokemonRepository = ( function () {
-  let pokemonList = [
-    {
-      name: "Bulbasaur",
-      types: ['grass', 'poison'],
-      height: 0.7,
-      weight: 6.9
-    },
-    {
-      name: "Butterfree",
-      types: ['bug', 'flying'],
-      height: 1.1,
-      weight: 32
-    },
-    {
-      name: "Starmie",
-      types: ['psychic', 'water'],
-      height: 1.1,
-      weight: 80
-    },
-    {
-      name: "Ducklett",
-      types: ['water', 'flying'],
-      height: 0.5,
-      weight: 5.5
-    }
-  ];
+  let pokemonList = [];
+
+  let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   // function that lets you add more pokemons to the repository if called
   function add(pokemon) {
@@ -75,61 +60,60 @@ let pokemonRepository = ( function () {
     unorderedPokemonList.appendChild(listItemPokemon);
   }
 
+  // funtion loads the pokemon list using the API
+  function loadList() {
+    return fetch(apiURL).then(function (response) {
+      return response.json ();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
+
+  // function that loads the details for the pokemon
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (repsonse) {
+      return response.json();
+    }).then(function (details) {
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
   // calls the function and says what the should show in the DOM
   return  {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails
   };
 
 }) ();
 
-// array that contains more pokemons
-let pokemonList2 = [
-  {
-    name: "Caterpie",
-    types: ['bug'],
-    height: 0.3,
-    weight: 2.9
-  },
-  {
-    name: "Charizard",
-    types: ['fire', 'flying'],
-    height: 1.7,
-    weight: 90.5
-  },
-  {
-    name: "Rapidash",
-    types: ['fire'],
-    height: 1.7,
-    weight: 95
-  },
-  {
-    name: "Lapras",
-    types: ['water', 'ice'],
-    height: 2.5,
-    weight: 220
-  }
-];
-
-// adds pokemons from pokemonList2 to the pokemonList in the pokemonRepository
-pokemonList2.forEach(function (pokemon) {
-    pokemonRepository.add(pokemon)
-  });
-
-// lists all the pokemon in the repository in the console
-console.log(pokemonRepository.getAll());
-
-// Adds a text to the DOM of the HTML h1
-let pageTitle = document.querySelector('h1');
-pageTitle.innerText = 'Pokedex';
-
-// forEach loop for the pokemonRepository, calling all the pokemon in the repository,
+// first line loads all the pokemon from the api to the repository
+// second-thrird line: forEach loop for the pokemonRepository, calling all the pokemon in the repository,
 // one at the time and running the addListItem function over each pokemons
 // thereby adding each pokemon name to a button within a listItem within the unorderedPokemonList
-pokemonRepository.getAll().forEach(function(pokemon){
-  pokemonRepository.addListItem(pokemon);
-});
+pokemonRepository.loadList().then(function () {
+  pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.addListItem(pokemon);
+  });
+})
 
-let listTitle = document.querySelector('h2');
-listTitle.innerText = 'List of Pokemons';
+function showDetails(pokemon) {
+  loadDetails(pokemon).then(function () {
+    console.log(pokemon);
+  });
+}

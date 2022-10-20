@@ -71,6 +71,7 @@ let pokemonRepository = ( function () {
   // each pokemon with the keys name and detailsUrl
   // then the pokemon object is added to the pokemonList
   function loadList() {
+    showLoadingMessage();
     return fetch(apiURL).then(function (response) {
       return response.json ();
     }).then(function (json) {
@@ -82,8 +83,10 @@ let pokemonRepository = ( function () {
         add(pokemon);
         console.log(pokemon);
       });
+      hideLoadingMessage();
     }).catch(function (e) {
       console.error(e);
+      hideLoadingMessage();
     })
   }
 
@@ -92,6 +95,7 @@ let pokemonRepository = ( function () {
   // .then is a function that fetches the details from the detailsUrl
   // and adds it to the pokemon object
   function loadDetails(item) {
+    showLoadingMessage();
     let url = item.detailsUrl;
 
     return fetch(url).then(function (response) {
@@ -100,9 +104,15 @@ let pokemonRepository = ( function () {
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.weight = details.weight;
-      item.types = details.types.map((item) => item.type.name).join(', ');
+      item.types = details.types.map(function (item) {
+        for ( i = 0; i < details.types.length; i++) {
+          return item.type.name;
+        }
+      }).join(', ');
+      hideLoadingMessage();
     }).catch(function (e) {
-      console.error(e);
+        console.error(e);
+        hideLoadingMessage();
     });
   }
 
@@ -112,6 +122,26 @@ let pokemonRepository = ( function () {
     pokemonRepository.loadDetails(pokemon).then(function () {
       console.log(pokemon);
     });
+  }
+
+  // show and hide loading message
+  function showLoadingMessage() {
+    let messageElement = document.createElement('div');
+    messageElement.innerText = 'The data is loading';
+    messageElement.classList.add('loading-message');
+    messageElement.setAttribute('id', 'loadingMessage');
+
+    let container = document.getElementById('container');
+    container.appendChild(messageElement);
+    container.insertBefore(messageElement, container.firstChild);
+
+    console.log('loading message shown');
+  }
+
+  function hideLoadingMessage () {
+    let messageElement = document.getElementById('loadingMessage');
+    messageElement.classList.add('hide-loading-message');
+    console.log('loading message removed');
   }
 
   // calls the function and says what the should show in the DOM
@@ -130,8 +160,69 @@ let pokemonRepository = ( function () {
 // second-thrird line: forEach loop for the pokemonRepository, calling all the pokemon in the repository,
 // one at the time and running the addListItem function over each pokemons
 // thereby adding each pokemon name to a button within a listItem within the unorderedPokemonList
+
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function(pokemon){
     pokemonRepository.addListItem(pokemon);
   });
 })
+
+const listItems = pokemonRepository.getAll();
+const listElement = document.getElementById('pokemon-list');
+const paginationElement = document.getElementById('pagination');
+
+let currentPage = 1;
+let rows = 5;
+
+function displayList (items, wrapper, rows_per_page, page){
+  console.log(wrapper);
+  wrapper.innerHTML = "";
+  page--;
+  let start = rows_per_page * page;
+  let end = start + rows_per_page;
+  let paginatedItems = items.slice(start, end);
+
+  for ( let i = start; i < paginatedItems.length; i++) {
+    let item = paginatedItems[i];
+    let itemElement = document.createElement('div');
+
+    itemElement.classList.add('item');
+    itemElement.innerText = item;
+
+    wrapper.appendChild(itemElement);
+  };
+}
+
+function setUpPagination (items, wrapper, rows_per_page) {
+  wrapper.innerHTML = "";
+
+  let pageCount = Math.ceil(items.length / rows_per_page);
+
+  for ( i = 1; i < pageCount + 1; i++) {
+    let btn = paginationButton(i, items);
+    wrapper.appendChild(btn);
+  }
+}
+
+function paginationButton (page, items) {
+  let button = document.createElement('button');
+  button.innerText = page;
+
+  if (currentPage == page) button.classList.add('active');
+
+  button.addEventListener('click', function() {
+    currentPage = page;
+    displayList(items, listElement, rows, currentPage);
+
+    let currentBtn = document.querySelector('.pagenumbers button.active');
+    currentBtn.classList.remove('active');
+
+    button.classList.add('active');
+  })
+
+  return button;
+}
+
+displayList (listItems, listElement, rows, currentPage);
+
+setUpPagination(listItems, paginationElement, rows);

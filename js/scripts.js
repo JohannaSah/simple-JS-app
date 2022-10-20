@@ -11,8 +11,10 @@ listTitle.innerText = 'List of Pokemons';
 // the showDetails function and the addListItem function, which in turn contains
 // the button and EventListener
 let pokemonRepository = ( function () {
+  //empty array to be filled with info from the api
   let pokemonList = [];
 
+  // api Url
   let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   // function that lets you add more pokemons to the repository if called

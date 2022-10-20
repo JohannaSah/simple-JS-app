@@ -20,9 +20,11 @@ let pokemonRepository = ( function () {
   // function that lets you add more pokemons to the repository if called
   function add(pokemon) {
     if (
-      typeof pokemon === "object" && "name" in pokemon && "detailsUrl" in pokemon
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "detailsUrl" in pokemon
     ) {
-      pokemonList.push(pokemon)
+      pokemonList.push(pokemon);
     }
     else {
       console.log('pokemon is not correct');
@@ -33,13 +35,6 @@ let pokemonRepository = ( function () {
   // function prints all the pokemon in the reopsitory when called
   function getAll() {
     return pokemonList;
-  }
-
-  // function needed to add the evenListener to button in the next function
-  // will lead to the pokemon details being shown in the console log, when the
-  //button is clicked
-  function showDetails(pokemon) {
-    console.log(pokemon)
   }
 
   // writes function forEach pokemon in the pokemonRepository,
@@ -85,6 +80,7 @@ let pokemonRepository = ( function () {
           detailsUrl: item.url
         };
         add(pokemon);
+        console.log(pokemon);
       });
     }).catch(function (e) {
       console.error(e);
@@ -94,16 +90,27 @@ let pokemonRepository = ( function () {
   // function that loads the details for the pokemon
   // has a promise (fetch(url))
   // .then is a function that fetches the details from the detailsUrl
+  // and adds it to the pokemon object
   function loadDetails(item) {
     let url = item.detailsUrl;
-    return fetch(url).then(function (repsonse) {
+
+    return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
-      item.types = details.types;
+      item.weight = details.weight;
+      item.types = details.types.map((item) => item.type.name).join(', ');
     }).catch(function (e) {
       console.error(e);
+    });
+  }
+
+  // function needed for the EventListener
+  // logs the details in the console
+  function showDetails(pokemon) {
+    pokemonRepository.loadDetails(pokemon).then(function () {
+      console.log(pokemon);
     });
   }
 
@@ -113,7 +120,8 @@ let pokemonRepository = ( function () {
     getAll: getAll,
     addListItem: addListItem,
     loadList: loadList,
-    loadDetails: loadDetails
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 
 }) ();
@@ -127,9 +135,3 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(pokemon);
   });
 })
-
-function showDetails(pokemon) {
-  loadDetails(pokemon).then(function () {
-    console.log(pokemon);
-  });
-}

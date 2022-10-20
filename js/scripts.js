@@ -14,11 +14,11 @@ let pokemonRepository = ( function () {
   //empty array to be filled with info from the api
   let pokemonList = [];
 
-  // api Url
+  // api Url with a limit to 150 pokemons (there are over a 1000)
   let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   // function that lets you add more pokemons to the repository if called
-  function add(pokemon) {
+  function add(pokemon) {    )
     pokemonList.push(pokemon)
   }
 
@@ -62,7 +62,11 @@ let pokemonRepository = ( function () {
     unorderedPokemonList.appendChild(listItemPokemon);
   }
 
-  // funtion loads the pokemon list using the API
+  // promise funtion that fetches the pokemon list using the API
+  // reponse.json() fetches the information in JSOn from the api
+  // for each json.results of the apiUrl the forEach loop creates a Object for
+  // each pokemon with the keys name and detailsUrl
+  // then the pokemon object is added to the pokemonList
   function loadList() {
     return fetch(apiURL).then(function (response) {
       return response.json ();

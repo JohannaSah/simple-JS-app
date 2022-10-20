@@ -18,8 +18,16 @@ let pokemonRepository = ( function () {
   let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   // function that lets you add more pokemons to the repository if called
-  function add(pokemon) {    )
-    pokemonList.push(pokemon)
+  function add(pokemon) {
+    if (
+      typeof pokemon === "object" && "name" in pokemon && "detailsUrl" in pokemon
+    ) {
+      pokemonList.push(pokemon)
+    }
+    else {
+      console.log('pokemon is not correct');
+    }
+
   }
 
   // function prints all the pokemon in the reopsitory when called

@@ -92,6 +92,8 @@ let pokemonRepository = ( function () {
   }
 
   // function that loads the details for the pokemon
+  // has a promise (fetch(url))
+  // .then is a function that fetches the details from the detailsUrl
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (repsonse) {

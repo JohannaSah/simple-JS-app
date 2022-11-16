@@ -51,8 +51,10 @@ let pokemonRepository = ( function () {
     let button = document.createElement('button');
     // adds text to the button, in this case the called pokemon's name
     button.innerText = pokemon.name;
-    // adds a class to the button called pokemonButton
+    // adds a class to the button
     button.classList.add('pokemonButton');
+    button.classList.add('btn');
+    button.classList.add('btn-primary');
     // adds an evenListener to the button, leading to the pokemon details to be
     // shown in the console log
     button.addEventListener('click', function(event){

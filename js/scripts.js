@@ -160,37 +160,6 @@ let pokemonRepository = ( function () {
     });
   }
 
-  // show and hide loading message
-  function showLoadingMessage() {
-    let messageElement = document.createElement('div');
-    messageElement.innerText = 'The data is loading';
-    messageElement.classList.add('loading-message');
-    messageElement.setAttribute('id', 'loadingMessage');
-
-    let container = document.getElementById('container');
-    container.appendChild(messageElement);
-    container.insertBefore(messageElement, container.firstChild);
-
-    console.log('loading message shown');
-  }
-
-  function hideLoadingMessage () {
-    let messageElement = document.getElementById('loadingMessage');
-    messageElement.classList.add('hide-loading-message');
-    console.log('loading message removed');
-  }
-
-  // calls the function and says what the should show in the DOM
-  return  {
-    add: add,
-    getAll: getAll,
-    addListItem: addListItem,
-    loadList: loadList,
-    loadDetails: loadDetails,
-    showDetails: showDetails
-  };
-
-}) ();
 
 // first line loads all the pokemon from the api to the repository
 // second-thrird line: forEach loop for the pokemonRepository, calling all the pokemon in the repository,
@@ -201,4 +170,4 @@ pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function(pokemon){
     pokemonRepository.addListItem(pokemon);
   });
-})
+});

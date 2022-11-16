@@ -3,10 +3,6 @@
 let pageTitle = document.querySelector('h1');
 pageTitle.innerText = 'Pokedex';
 
-// Title of the pokemon list that follows
-let listTitle = document.querySelector('h2');
-listTitle.innerText = 'List of Pokemons';
-
 // pokemonRepository contains IIFE with the add() function,  getAll() function,
 // the showDetails function and the addListItem function, which in turn contains
 // the button and EventListener

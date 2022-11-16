@@ -3,7 +3,7 @@
 let pageTitle = document.querySelector('h1');
 pageTitle.innerText = 'Pokedex';
 
-//TItle of the pokemon list that follows
+// Title of the pokemon list that follows
 let listTitle = document.querySelector('h2');
 listTitle.innerText = 'List of Pokemons';
 

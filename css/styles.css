@@ -19,6 +19,10 @@ body {
   background-color: var(--background-color);
 }
 
+.main {
+  margin-top: 60px;
+}
+
 .pokemon-list {
   list-style-type: none;
   display: grid;

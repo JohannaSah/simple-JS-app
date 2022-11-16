@@ -116,72 +116,40 @@ let pokemonRepository = ( function () {
   }
   
   function showModal (pokemon) {
-    let modalContainer = document.querySelector('#modal-container');
-    modalContainer.innerHTML = '';
+    let modalTitle = $('.modal-title');
+    let modalBody = $('.modal-body');
 
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
+    // clear the modal at beginning of each loop
+    modalTitle.empty();
+    modalBody.empty();
 
-    let closeButtonElement = document.createElement ('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
+    let titleElement = $('<h1>' + pokemon.name + '</h1>');
+    titleElement.classList.add('pokemon-name', 'pokemon-details');
 
-    let pokemonImage = document.createElement('img');
-    pokemonImage.src = pokemon.imageUrl;
-    pokemonImage.classList.add('pokemon-image');
-    pokemonImage.classList.add('pokemon-details');
+    let pokemonImage = $('<img class="modal-img" style="width:50%">');
+    pokemonImage.classList.add('pokemon-image', 'pokemon-details');
+    pokemonImage.attr('src', pokemon.imageUrl);
 
-    let titleElement = document.createElement('h1');
-    titleElement.innerText = pokemon.name;
-    titleElement.classList.add('pokemon-name');
-    titleElement.classList.add('pokemon-details');
+    let pokemonImageBack = $('<img class="modal-img" style="width:50%">');
+    pokemonImageBack.classList.add('pokemon-image', 'pokemon-details');
+    pokemonImageBack.attr('src', pokemon.imageUrlBack);
 
-    let pokemonHeight = document.createElement('p');
-    pokemonHeight.innerText = 'Height: ' + pokemon.height + 'm';
+    let pokemonHeight = $('<p>' + 'Height: ' + pokemon.height + 'm' +'</p>' );
     pokemonHeight.classList.add('pokemon-details');
 
-    let pokemonWeight = document.createElement('p');
-    pokemonWeight.innerText = 'Weight: ' + pokemon.weight + 'kg';
+    let pokemonWeight = $('<p>' + 'weight: ' + pokemon.weight + 'kg' +'</p>' );
     pokemonWeight.classList.add('pokemon-details');
 
-    let pokemonType = document.createElement('p');
-    pokemonType.innerText = 'Types: ' + pokemon.types;
+    let pokemonType = $('<p>' + 'Types: ' + pokemon.types +'</p>' )
     pokemonType.classList.add('pokemon-details');
 
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(pokemonImage);
-    modal.appendChild(titleElement);
-    modal.appendChild(pokemonHeight);
-    modal.appendChild(pokemonWeight);
-    modal.appendChild(pokemonType);
-    modalContainer.appendChild(modal);
-
-    
-  modalContainer.addEventListener('click', (e) => {
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-  });
-
-    modalContainer.classList.add('is-visible');
-  }
-
-  function hideModal () {
-    let modalContainer = document.querySelector('#modal-container');
-
-    modalContainer.classList.remove('is-visible');
-  }
-
-  window.addEventListener('keydown', (e) => {
-    let modalContainer = document.querySelector('#modal-container');
-
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      hideModal();
-    }
-  } );
- 
+    modalTitle.appendChild(titleElement);
+    modalBody.appendChild(pokemonImage);
+    modalBody.appendChild(pokemonImageBack);
+    modalBody.appendChild(pokemonHeight);
+    modalBody.appendChild(pokemonWeight);
+    modalBody.appendChild(pokemonType);
+  } 
 
   // function needed to display the info about each pokemon
   // logs the details in the console and shows them in a modal

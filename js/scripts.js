@@ -49,7 +49,7 @@ let pokemonRepository = ( function () {
     button.innerText = pokemon.name;
     // add attributes to connect it to the modal
     button.setAttribute('data-toggle', 'modal');
-    button.setAttribute('data-target', '#pokemon-details-modal')
+    button.setAttribute('data-target', '#pokemon-details-modal');
     // adds a class to the button
     button.classList.add('pokemonButton', 'btn', 'btn-primary');
     // adds an evenListener to the button, leading to the pokemon details to be

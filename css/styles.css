@@ -1,6 +1,6 @@
 /* Take the time to choose proper colour scheme and to style the app properly */
 
-:root {
+/*:root {
   --primary-color: #FCE700;
   --secondary-color: #FF6D28;
   --background-color: #00F5FF;
@@ -8,7 +8,7 @@
   --text-color: #EA047E;
   --text-color-light: #F481BE;
   --text-color-dark: #460125;
-}
+}*/
 
 body {
   font-family: "Lato", sans-serif;

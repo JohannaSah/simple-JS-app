@@ -48,12 +48,10 @@ let pokemonRepository = ( function () {
     // adds text to the button, in this case the called pokemon's name
     button.innerText = pokemon.name;
     // adds a class to the button
-    button.classList.add('pokemonButton');
-    button.classList.add('btn');
-    button.classList.add('btn-primary');
+    button.classList.add('pokemonButton', 'btn', 'btn-primary');
     // adds an evenListener to the button, leading to the pokemon details to be
     // shown in the console log
-    button.addEventListener('click', function(event){
+    button.addEventListener('click', function(){
       showDetails(pokemon);
     })
 
@@ -101,12 +99,14 @@ let pokemonRepository = ( function () {
       return response.json();
     }).then(function (details) {
       item.imageUrl = details.sprites.front_default;
+      item.imgUrlBack = details.sprites.back_default;
       item.height = details.height;
       item.weight = details.weight;
       item.types = details.types.map(function (item) {
         for ( i = 0; i < details.types.length; i++) {
           return item.type.name;
         }
+      item.
       }).join(', ');
       hideLoadingMessage();
     }).catch(function (e) {

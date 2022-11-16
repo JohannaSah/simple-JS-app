@@ -45,6 +45,7 @@ let pokemonRepository = ( function () {
 
     // creates a new li (listItem) for each time the loop is run
     let listItemPokemon = document.createElement('li');
+    listItemPokemon.classList.add('group-list-item')
 
     // creates a button each time the loop is run
     let button = document.createElement('button');

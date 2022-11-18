@@ -71,7 +71,6 @@ let pokemonRepository = ( function () {
   // each pokemon with the keys name and detailsUrl
   // then the pokemon object is added to the pokemonList
   function loadList() {
-    showLoadingMessage();
     return fetch(apiURL).then(function (response) {
       return response.json ();
     }).then(function (json) {
@@ -83,10 +82,8 @@ let pokemonRepository = ( function () {
         add(pokemon);
         console.log(pokemon);
       });
-      hideLoadingMessage();
     }).catch(function (e) {
       console.error(e);
-      hideLoadingMessage();
     })
   }
 
@@ -95,7 +92,6 @@ let pokemonRepository = ( function () {
   // .then is a function that fetches the details from the detailsUrl
   // and adds it to the pokemon object
   function loadDetails(item) {
-    showLoadingMessage();
     let url = item.detailsUrl;
 
     return fetch(url).then(function (response) {
@@ -109,12 +105,9 @@ let pokemonRepository = ( function () {
         for ( i = 0; i < details.types.length; i++) {
           return item.type.name;
         }
-      item.
       }).join(', ');
-      hideLoadingMessage();
     }).catch(function (e) {
         console.error(e);
-        hideLoadingMessage();
     });
   }
   
@@ -160,8 +153,18 @@ let pokemonRepository = ( function () {
     pokemonRepository.loadDetails(pokemon).then(function () {
       showModal(pokemon);
       console.log(pokemon);
-    });
-  }
+    })
+  };
+
+    return{
+      add : add,
+      getAll : getAll,
+      addListItem:addListItem,
+      showDetails:showDetails,
+      loadList:loadList,
+      loadDetails: loadDetails
+    }
+  })();
 
 
 // first line loads all the pokemon from the api to the repository

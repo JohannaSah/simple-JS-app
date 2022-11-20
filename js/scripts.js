@@ -120,31 +120,31 @@ let pokemonRepository = ( function () {
     modalBody.empty();
 
     let titleElement = $('<h1>' + pokemon.name + '</h1>');
-    titleElement.classList.add('pokemon-name', 'pokemon-details');
+    titleElement.addclass('pokemon-name', 'pokemon-details');
 
     let pokemonImage = $('<img class="modal-img" style="width:50%">');
-    pokemonImage.classList.add('pokemon-image', 'pokemon-details');
+    pokemonImage.addClass('pokemon-image', 'pokemon-details');
     pokemonImage.attr('src', pokemon.imageUrl);
 
     let pokemonImageBack = $('<img class="modal-img" style="width:50%">');
-    pokemonImageBack.classList.add('pokemon-image', 'pokemon-details');
+    pokemonImageBack.addClass('pokemon-image', 'pokemon-details');
     pokemonImageBack.attr('src', pokemon.imageUrlBack);
 
     let pokemonHeight = $('<p>' + 'Height: ' + pokemon.height + 'm' +'</p>' );
-    pokemonHeight.classList.add('pokemon-details');
+    pokemonHeight.addClass('pokemon-details');
 
     let pokemonWeight = $('<p>' + 'weight: ' + pokemon.weight + 'kg' +'</p>' );
-    pokemonWeight.classList.add('pokemon-details');
+    pokemonWeight.addClass('pokemon-details');
 
     let pokemonType = $('<p>' + 'Types: ' + pokemon.types +'</p>' )
-    pokemonType.classList.add('pokemon-details');
+    pokemonType.addClass('pokemon-details');
 
-    modalTitle.appendChild(titleElement);
-    modalBody.appendChild(pokemonImage);
-    modalBody.appendChild(pokemonImageBack);
-    modalBody.appendChild(pokemonHeight);
-    modalBody.appendChild(pokemonWeight);
-    modalBody.appendChild(pokemonType);
+    modalTitle.append(titleElement);
+    modalBody.append(pokemonImage);
+    modalBody.append(pokemonImageBack);
+    modalBody.append(pokemonHeight);
+    modalBody.append(pokemonWeight);
+    modalBody.append(pokemonType);
   } 
 
   // function needed to display the info about each pokemon

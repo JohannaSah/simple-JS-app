@@ -120,7 +120,7 @@ let pokemonRepository = ( function () {
     modalBody.empty();
 
     let titleElement = $('<h1>' + pokemon.name + '</h1>');
-    titleElement.addclass('pokemon-name', 'pokemon-details');
+    titleElement.addClass('pokemon-name', 'pokemon-details');
 
     let pokemonImage = $('<img class="modal-img" style="width:50%">');
     pokemonImage.addClass('pokemon-image', 'pokemon-details');

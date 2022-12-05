@@ -10,7 +10,7 @@ more details for a given data item on demand.
 
 ## API used
 For this project I chose the following public API:
-- to be added once chosen
+- 'https://pokeapi.co/api/v2/pokemon/?limit=150'
 
 ## The key features
 The key features for this app are:
@@ -23,4 +23,4 @@ This app will work in:
 - Chrome
 - Firefox
 - Safari
-- Edge.
+- Edge

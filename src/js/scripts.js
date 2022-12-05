@@ -1,8 +1,4 @@
 
-// Adds a text to the DOM of the HTML h1
-let pageTitle = document.querySelector('h1');
-pageTitle.innerText = 'Pokedex';
-
 // pokemonRepository contains IIFE with the add() function,  getAll() function,
 // the showDetails function and the addListItem function, which in turn contains
 // the button and EventListener

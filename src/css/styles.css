@@ -1,0 +1,91 @@
+/* Take the time to choose proper colour scheme and to style the app properly */
+
+:root {
+  --primary-color: #FCE700;
+  --secondary-color: #FF6D28;
+  --background-color: #00F5FF;
+  --background-colorlight: #CCFDFF;
+  --text-color: #EA047E;
+  --text-color-light: #F481BE;
+  --text-color-dark: #460125;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.main {
+  margin-top: 100px;
+}
+
+.pokemon-list {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.pageTitle {
+  margin: 40px;
+  font-size: 50px;
+  font-weight: 700px;
+  text-decoration: underline;
+  text-shadow: 1px 1px 2px;
+  text-decoration-color: var(--secondary-color);
+}
+
+.listTitle {
+  margin: 40px;
+  font-size: 30px;
+  font-weight: 700px;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-shadow: 1px 1px 2px;
+  text-decoration-color: var(--secondary-color);
+}
+
+.pokemonButton {
+  width: 150px;
+  padding: 5px;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--text-color);
+  border-radius: 5px;
+  border-color: var(--secondary-color);
+  background-color: var(--primary-color);
+}
+
+.pokemonButton:first-letter {
+  text-transform: uppercase;
+}
+
+.pokemonButton:hover,
+.pokemonButton:focus {
+  cursor: pointer;
+  opacity: 0.7;
+  text-decoration: underline;
+  box-shadow: 3px 3px 6px var(--secondary-color);
+}
+
+.pokemon-name {
+  text-decoration: dashed;
+}
+
+.pokemon-name:first-letter {
+  text-transform: uppercase;
+}
+
+.pokemon-details {
+  margin-left: 30px;
+}

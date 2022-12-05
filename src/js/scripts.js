@@ -29,13 +29,6 @@ let pokemonRepository = ( function () {
     return pokemonList;
   }
 
-  // function to search the repository
-  function search(query) {
-    return pokemonRepository.getAll().filter(function(pokemon){
-      return pokemon.name.indexOf(query) > -1;
-    });
-  }
-
   // writes function forEach pokemon in the pokemonRepository,
   // adding it to a button within a listItem within the unorderedPokemonList
   function addListItem(pokemon){

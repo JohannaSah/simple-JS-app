@@ -1,0 +1,116 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 40 version
+*/
+
+/* Take the time to choose proper colour scheme and to style the app properly */
+
+:root {
+    --primary-color: #FCE700;
+    --secondary-color: #FF6D28;
+    --background-color: #00F5FF;
+    --background-colorlight: #CCFDFF;
+    --text-color: #EA047E;
+    --text-color-light: #F481BE;
+    --text-color-dark: #460125;
+  }
+  
+  body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  
+  .main {
+    margin-top: 100px;
+  }
+  
+  .pokemon-list {
+    list-style-type: none;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 30px 1fr 30px 1fr 30px 1fr 30px 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+  }
+  
+  .title {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: left;
+    -webkit-align-items: left;
+        -ms-flex-align: left;
+            align-items: left;
+  }
+  
+  .pageTitle {
+    margin: 40px;
+    font-size: 50px;
+    font-weight: 700px;
+    text-decoration: underline;
+    text-shadow: 1px 1px 2px;
+    -webkit-text-decoration-color: var(--secondary-color);
+            text-decoration-color: var(--secondary-color);
+  }
+  
+  .listTitle {
+    margin: 40px;
+    font-size: 30px;
+    font-weight: 700px;
+    text-decoration: underline;
+    -webkit-text-decoration-style: dotted;
+            text-decoration-style: dotted;
+    text-shadow: 1px 1px 2px;
+    -webkit-text-decoration-color: var(--secondary-color);
+            text-decoration-color: var(--secondary-color);
+  }
+  
+  .pokemonButton {
+    width: 150px;
+    padding: 5px;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--text-color);
+    -webkit-border-radius: 5px;
+            border-radius: 5px;
+    border-color: var(--secondary-color);
+    background-color: var(--primary-color);
+  }
+  
+  .pokemonButton:first-letter {
+    text-transform: uppercase;
+  }
+  
+  .pokemonButton:hover,
+  .pokemonButton:focus {
+    cursor: pointer;
+    opacity: 0.7;
+    text-decoration: underline;
+    -webkit-box-shadow: 3px 3px 6px var(--secondary-color);
+            box-shadow: 3px 3px 6px var(--secondary-color);
+  }
+  
+  .pokemon-name {
+    -webkit-text-decoration: dashed;
+            text-decoration: dashed;
+  }
+  
+  .pokemon-name:first-letter {
+    text-transform: uppercase;
+  }
+  
+  .pokemon-details {
+    margin-left: 30px;
+  }

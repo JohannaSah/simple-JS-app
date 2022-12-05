@@ -32,7 +32,7 @@ let pokemonRepository = ( function () {
   // function to search the repository
   function search(query) {
     return pokemonRepository.getAll().filter(function(pokemon){
-      return pokemon.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
+      return pokemon.name.indexOf(query) > -1;
     });
   }
 

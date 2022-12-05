@@ -158,16 +158,6 @@ let pokemonRepository = ( function () {
       console.log(pokemon);
     })
   };
-  
-  
-  $(document).ready(function () {
-    $("#search_input").on("keyup", function () {
-      var value = $(this).val().toLowerCase();
-      $("#poke_doc *").filter(function () {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-      });
-    });
-  });
 
   return{
       add : add,

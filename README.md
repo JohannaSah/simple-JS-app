@@ -5,7 +5,7 @@ JavaScript that loads data from an external API and enables the viewing
 of data points in detail.
 
 ## The goal
-The goal is to have an app that allows users t view a list of data and see
+The goal is to have an app that allows users to view a list of data and see
 more details for a given data item on demand.
 
 ## API used

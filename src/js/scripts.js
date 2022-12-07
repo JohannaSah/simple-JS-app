@@ -39,6 +39,13 @@ let pokemonRepository = ( function () {
     let listItemPokemon = document.createElement('li');
     listItemPokemon.classList.add('group-list-item', 'list-item');
 
+    // creates a card around the button
+    let card = $('<div class="card" style="width:250px"></div>');
+    
+    // card image
+    let cardImage = $('<img class="card-img-top" alt="Pokemon Image" style="40%">');
+    cardImage.attr("src", pokemon.imageUrl);
+
     // creates a button each time the loop is run
     let button = document.createElement('button');
     // adds text to the button, in this case the called pokemon's name
@@ -53,6 +60,12 @@ let pokemonRepository = ( function () {
     button.addEventListener('click', function(){
       showDetails(pokemon);
     })
+
+    // append the card to the unorderedpokemonlist
+    unorderedPokemonList.append(card);
+
+    // append the image to the card
+    card.append(cardImage);
 
     // appends the button as a child of the li listItemPokemon
     listItemPokemon.appendChild(button);

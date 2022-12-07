@@ -50,10 +50,10 @@
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: left;
+    -webkit-box-align: center;
     -webkit-align-items: left;
-        -ms-flex-align: left;
-            align-items: left;
+        -ms-flex-align: center;
+            align-items: center;
   }
   
   .pageTitle {

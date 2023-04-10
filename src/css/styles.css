@@ -1,13 +1,13 @@
 /* Take the time to choose proper colour scheme and to style the app properly */
 
 :root {
-  --primary-color: #FCE700;
-  --secondary-color: #FF6D28;
-  --background-color: #00F5FF;
+  --primary-color: #82D7E0;
+  --secondary-color: #FA604F;
+  --background-color: #050B34;
   --background-colorlight: #CCFDFF;
-  --text-color: #EA047E;
-  --text-color-light: #F481BE;
-  --text-color-dark: #460125;
+  --text-color: #050B34;
+  --text-color-light: #82D7E0;
+  --text-color-dark: #FA604F;
 }
 
 body {

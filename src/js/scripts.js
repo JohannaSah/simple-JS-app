@@ -42,7 +42,7 @@ let pokemonRepository = ( function () {
     // creates a button each time the loop is run
     let button = document.createElement('button');
     // adds text to the button, in this case the called pokemon's name
-    button.innerText = pokemon.name.toUpperCase();
+    button.innerText = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
     // add attributes to connect it to the modal
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#pokemon-details-modal');

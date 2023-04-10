@@ -94,3 +94,7 @@ body {
 .pokemon-logo {
   margin-left: 25px;
 }
+
+.invisible {
+  display: none;
+}

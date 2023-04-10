@@ -47,7 +47,7 @@ let pokemonRepository = ( function () {
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#pokemon-details-modal');
     // adds a class to the button
-    button.classList.add('pokemonButton', 'btn', 'btn-primary');
+    button.classList.add('pokemonButton', 'btn', 'btn-primary', 'card');
     // adds an evenListener to the button, leading to the pokemon details to be
     // shown in the console log
     button.addEventListener('click', function(){
@@ -73,7 +73,8 @@ let pokemonRepository = ( function () {
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
-          detailsUrl: item.url
+          detailsUrl: item.url,
+          isVisible: 'y'
         };
         add(pokemon);
         console.log(pokemon);
@@ -151,6 +152,30 @@ let pokemonRepository = ( function () {
     })
   };
 
+  
+function search() {
+  let input = document.getElementById("search-bar").value;
+  console.log("search input: " + input);
+  let cards = document.querySelectorAll('.card');
+  for ( i = 0; i < cards.length; i++) {
+    if (cards[i].innerText.includes(input)) {
+      console.log(cards[i].innerText + " was found");
+      // pokemonList[i].isVisible = 'y';
+      console.log(cards[i].innerText.includes(input));
+      cards[i].classList.remove('invisible');
+    }
+    else {
+      cards[i].classList.add('invisible');
+    }
+  }
+}
+
+let searchInput = document.getElementById("search-bar");
+
+searchInput.addEventListener('keyup', () => {
+  search();
+});
+
   return{
       add : add,
       getAll : getAll,
@@ -172,3 +197,4 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
